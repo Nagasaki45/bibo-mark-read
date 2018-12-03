@@ -15,8 +15,8 @@ def mark_read(ctx, search_term):
     entry['fields']['readdate'] = str(datetime.date.today())
     tags_field = entry['fields'].get('tags')
     if tags_field:
-        tags = (t.strip() for t in tags.split(','))
+        tags = (t.strip() for t in tags_field.split(','))
         updated = ','.join([t for t in tags if t.lower() != 'to read'])
-        entry['fields']['tags'] = tags
+        entry['fields']['tags'] = updated
 
     pybibs.write_file(data, ctx.obj['database'])
