@@ -74,7 +74,6 @@ setup(
     install_requires=[
         'bibo',
         'click',
-        'pybibs',
     ],
 
     # To provide executable scripts, use entry points in preference to the
