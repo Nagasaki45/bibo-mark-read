@@ -17,6 +17,9 @@ def mark_read(ctx, search_term):
     if tags_field:
         tags = (t.strip() for t in tags_field.split(','))
         updated = ','.join([t for t in tags if t.lower() != 'to read'])
-        entry['fields']['tags'] = updated
+        if updated:
+            entry['fields']['tags'] = updated
+        else:
+            del entry['fields']['tags']
 
     pybibs.write_file(data, ctx.obj['database'])
