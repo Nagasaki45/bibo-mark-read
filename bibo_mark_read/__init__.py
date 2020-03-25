@@ -16,7 +16,7 @@ def mark_read(ctx, search_term):
     tags_field = entry['fields'].get('tags')
     if tags_field:
         tags = (t.strip() for t in tags_field.split(','))
-        updated = ','.join([t for t in tags if t.lower() != 'to read'])
+        updated = ','.join([t for t in tags if t.lower() != 'to-read'])
         if updated:
             entry['fields']['tags'] = updated
         else:
