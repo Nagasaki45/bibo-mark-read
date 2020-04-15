@@ -10,7 +10,7 @@ import click
 @click.pass_context
 def mark_read(ctx, search_term):
     data = ctx.obj['data']
-    entry = bibo.query.get(data, search_term)
+    entry = bibo.query.get(data, search_term).entry
 
     entry['fields']['readdate'] = str(datetime.date.today())
     tags_field = entry['fields'].get('tags')
